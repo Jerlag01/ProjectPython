@@ -1,12 +1,74 @@
-import discord
-import secrets
 import logging
 import logging.handlers
 import asyncio
-import settings
+import os
+import sys
+import datetime
+import subprocess
+import traceback
 
-from discord.ext.commands import Bot
-from discord import Game
+try:
+    from discord.ext import commands
+    import discord
+except ImportError:
+    print("Discord.py is not installed.\n"
+          "Consult the guide for your operating system "
+          "and do ALL the steps in order.\n"
+          "https://projectpython.flanderscraft.be/docs/")
+    sys.exit(1)
+
+from modules.utils.settings import Settings
+from modules.utils.dataIO import dataIO
+from modules.utils.chatformat import inline
+from collections import Counter
+from io import TextIOWrapper
+
+description = "ProjectPython - A discord bot made for the course Python at Thomas More"
+
+class Client(commands.Bot):
+    def __init__(self, *args, **kwargs):
+
+        def prefix_manager(bot, message):
+            """Returns prfixes of the message's server if set.
+            If none are set or if the message's server is None
+            then it will return the global prefixes instead"""
+            return Bot.settings.get_prefixes(message.server)
+
+        self.counter = Counter()
+        self.uptime = datetime.datetime.utcnow()
+        self._message_modifiers = []
+        self.settings = Settings()
+        self._intro_displayed = False
+        self._shutdown_mode = None
+        self.logger = set_logger(self)
+        self.oauth_url = ""
+
+        if 'self_bot' in kwargs:
+            self.settings.self_bot = kwargs['self_bot']
+        else:
+            kwargs ['self_bot'] = self.settings.self_bot
+            if self.settings.self_bot:
+                kwargs['pm_help'] = False
+        super().__init__(*args, command_prefix=prefix_manager, **kwargs)
+
+    async def send_message(self, *args, **kwargs):
+        if self._message_modifiers:
+            if "content" in kwargs:
+                pass
+            elif len(args) == 2:
+                args = list(args)
+                kwargs["content"] = args.pop()
+            else:
+                return await super().send_message(*argd, **kwargs)
+            
+            content = kwargs['content']
+            for m in self._message_modifiers:
+                try:
+                    content = str(m(content))
+                except:
+                    pass
+            kwargs['']
+
 
 extensions = ['general', 'management', 'autoresponder']
 
