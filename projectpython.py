@@ -547,7 +547,7 @@ def main(bot):
     print("Logging into Discord....")
     bot.uptime = datetime.datetime.utcnow()
 
-    if bot.settings.logging_credentials:
+    if bot.settings.login_credentials:
         yield from bot.login(*bot.settings.login_credentials,
                              bot=not bot.settings.self_bot)
     else:
