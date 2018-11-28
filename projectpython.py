@@ -254,7 +254,7 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
             return
         bot._intro_displayed = True
 
-        owner_module = bot.get_module('Owner')
+        owner_module = bot.get_cog('Owner')
         total_modules = len(owner_module._list_modules())
         users = len(bot.get_all_members())
         servers = len(bot.servers)
@@ -299,7 +299,7 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
 
         print("Make sure to keep the bot updated.")
 
-        await bot.get_module('Owner').disable_commands()
+        await bot.get_cog('Owner').disable_commands()
 
     @bot.event
     async def on_resumed():
@@ -496,7 +496,7 @@ def load_modules(bot):
         registry = {}
 
     bot.load_extension('modules.owner')
-    owner_module = bot.get_module('Owner')
+    owner_module = bot.get_cog('Owner')
     if owner_module is None:
         print("The owner module is missing. It contains core function without "
               "which ProjectPython cannot function. Reinstall.")
