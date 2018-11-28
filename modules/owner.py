@@ -857,7 +857,7 @@ class Owner:
         about = (
             "This is an instance of [ProjectPython, an open source Discord bot]({}) "
             "created by [Jerlag_01]({}) for the course Python.\n\n"
-            "".format(projectpython_repo, projectython_repo, server_url))
+            "".format(projectpython_repo, projectpython_repo, server_url))
 
         embed = discord.Embed(colour=discord.Colour.red())
         embed.add_field(name="Instance owned by", value=str(owner))
@@ -1078,7 +1078,7 @@ def check_files():
             log.error("Failed to migrate blacklist / whitelist data from "
                       "mod.py: {}".format(e))
 
-        dataIO.save_json("data/projectython/global_ignores.json", data)
+        dataIO.save_json("data/projectpython/global_ignores.json", data)
 
 
 def setup(bot):

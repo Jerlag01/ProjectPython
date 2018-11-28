@@ -11,7 +11,7 @@ class DataIO():
         self.logger = logging.getLogger("ProjectPython")
 
     def save_json(self, filename, data):
-        """Atomically saves json file"""
+        """Automically saves json file"""
         rnd = randint(1000, 9999)
         path, ext = os.path.splitext(filename)
         tmp_file = "{}-{}.tmp".format(path, rnd)
