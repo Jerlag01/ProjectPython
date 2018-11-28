@@ -686,4 +686,4 @@ def setup(bot):
     n = Streams(bot)
     loop = asyncio.get_event_loop()
     loop.create_task(n.stream_checker())
-    bot.add_module(n)
+    bot.add_cog(n)

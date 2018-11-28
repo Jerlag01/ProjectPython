@@ -700,4 +700,4 @@ def setup(bot):
     check_folders()
     check_files()
     n = Downloader(bot)
-    bot.add_module(n)
+    bot.add_cog(n)

@@ -311,4 +311,4 @@ class NewPoll():
 def setup(bot):
     n = General(bot)
     bot.add_listener(n.check_poll_votes, "on_message")
-    bot.add_module(n)
+    bot.add_cog(n)

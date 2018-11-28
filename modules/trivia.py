@@ -329,4 +329,5 @@ def check_files():
 def setup(bot):
     check_folders()
     check_files()
-    bot.add_module(Trivia(bot))
+    n = Trivia(bot)
+    bot.add_cog(n)

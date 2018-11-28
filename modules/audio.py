@@ -2378,7 +2378,7 @@ def setup(bot):
             "".format(msg))
 
     n = Audio(bot, player=player)  # Praise 26
-    bot.add_module(n)
+    bot.add_cog(n)
     bot.add_listener(n.voice_state_update, 'on_voice_state_update')
     bot.loop.create_task(n.queue_scheduler())
     bot.loop.create_task(n.disconnect_timer())

@@ -733,4 +733,5 @@ def setup(bot):
         handler.setFormatter(logging.Formatter(
             '%(asctime)s %(message)s', datefmt="[%d/%m/%Y %H:%M]"))
         logger.addHandler(handler)
-    bot.add_module(Economy(bot))
+    n = Economy(bot)
+    bot.add_cog(n)

@@ -4,9 +4,10 @@ from discord.ext import commands
 class Management:
     """Owner-Only Commands."""
 
-    def __init__(self, client):
-        self.client = client
+    def __init__(self, bot):
+        self.bot = bot
 
 
 def setup(client):
-    client.add_cog(Management(client))
+    n = Management(bot)
+    bot.add_cog(n)

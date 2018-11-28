@@ -197,4 +197,5 @@ def check_files():
 def setup(bot):
     check_folders()
     check_files()
-    bot.add_module(CustomCommands(bot))
+    n = CustomCommands(bot)
+    bot.add_cog(n)

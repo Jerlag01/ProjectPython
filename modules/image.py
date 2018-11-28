@@ -164,5 +164,5 @@ def setup(bot):
     if ImgurClient is False:
         raise RuntimeError("You need the imgurpython module to use this.\n"
                            "pip3 install imgurpython")
-
-    bot.add_module(Image(bot))
+    n = Image(bot)
+    bot.add_cog(n)

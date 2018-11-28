@@ -1717,4 +1717,4 @@ def setup(bot):
         logger.addHandler(handler)
     n = Mod(bot)
     bot.add_listener(n.check_names, "on_member_update")
-    bot.add_module(n)
+    bot.add_cog(n)
