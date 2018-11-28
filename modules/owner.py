@@ -931,7 +931,7 @@ class Owner:
         return []
 
     def _load_module(self, modulename):
-        if not self._does_cogfile_exist(modulename):
+        if not self._does_modulefile_exist(modulename):
             raise ModuleNotFoundError(modulename)
         try:
             mod_obj = importlib.import_module(modulename)
