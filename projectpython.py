@@ -3,6 +3,7 @@ import logging.handlers
 import asyncio
 import os
 import sys
+sys.path.insert(0, "lib")
 import datetime
 import subprocess
 import traceback
@@ -32,7 +33,7 @@ class Bot(commands.Bot):
             """Returns prfixes of the message's server if set.
             If none are set or if the message's server is None
             then it will return the global prefixes instead"""
-            return Bot.settings.get_prefixes(message.server)
+            return bot.settings.get_prefixes(message.server)
 
         self.counter = Counter()
         self.uptime = datetime.datetime.utcnow()
@@ -270,7 +271,6 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
         print('-------------------------------')
         print('      Project Python Bot       ')
         print(' Multi-functional Discord Bot  ')
-        print('     Created by ' + owner + '  ')
         print('-----------------------------\n')
 
         print('--------------Info-------------')
