@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 from modules.utils import checks
 from modules.utils.converters import GlobalUser
-from __main__ import set_module
+from __main__ import set_cog
 from .utils.dataIO import dataIO
 from .utils.chatformat import pagify, box
 
@@ -71,7 +71,7 @@ class Owner:
                                "something went wrong. Check your console "
                                "or logs for more information.")
         else:
-            set_module(module, True)
+            set_cog(module, True)
             await self.disable_commands()
             await self.bot.say("The module has been loaded")
 
@@ -109,7 +109,7 @@ class Owner:
         modules = self._list_modules()
         still_loaded = []
         for module in modules:
-            set_module(module, False)
+            set_cog(module, False)
             try:
                 self._unload_module(module)
             except OwnerUnloadWithoutReloadError:
@@ -164,9 +164,9 @@ class Owner:
         # which is currently true.
 
         # Extracting filename from __module__ Example: moduless.owner
-        loaded = [c.__module__.split(".")[1] for c in self.bot.modules.values()]
+        loaded = [c.__module__.split(".")[1] for c in self.bot.cogs.values()]
         # What's in the folder but not loaded is unloaded
-        unloaded = [c.split(".")[1] for c in self._list_modules()
+        unloaded = [c.split(".")[1] for c in self._list_cogs()
                     if c.split(".")[1] not in loaded]
 
         if not unloaded:
@@ -931,7 +931,7 @@ class Owner:
         return []
 
     def _load_module(self, modulename):
-        if not self._does_modulefile_exist(modulename):
+        if not self._does_cogfile_exist(modulename):
             raise ModuleNotFoundError(modulename)
         try:
             mod_obj = importlib.import_module(modulename)
