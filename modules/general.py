@@ -47,9 +47,9 @@ class General:
                     brief='Responds with the time needed to respond' )
     async def ping(self, ctx):
         pingtime = time.time()
-        pingms = await self.client.say("Pinging...")
+        pingms = await self.bot.say("Pinging...")
         ping = time.time() - pingtime
-        await self.client.edit_message(pingms, ":ping_pong:  time is %.01f seconds" % ping)
+        await self.bot.edit_message(pingms, ":ping_pong:  time is %.01f seconds" % ping)
 
     @commands.command(pass_context=True, no_pm=True)
     async def serverinfo(self, ctx):
