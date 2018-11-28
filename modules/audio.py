@@ -2028,7 +2028,7 @@ class Audio:
         return True
 
     async def cache_manager(self):
-        while self == self.bot.get_module("Audio"):
+        while self == self.bot.get_cog("Audio"):
             if self._cache_too_large():
                 # Our cache is too big, dumping
                 log.debug("cache too large ({} > {}), dumping".format(
@@ -2049,7 +2049,7 @@ class Audio:
 
     async def disconnect_timer(self):
         stop_times = {}
-        while self == self.bot.get_module('Audio'):
+        while self == self.bot.get_cog('Audio'):
             for vc in self.bot.voice_clients:
                 server = vc.server
                 if not hasattr(vc, 'audio_player') and \
@@ -2217,7 +2217,7 @@ class Audio:
                     await self.bot.send_message(next_channel, message)
 
     async def queue_scheduler(self):
-        while self == self.bot.get_module('Audio'):
+        while self == self.bot.get_cog('Audio'):
             tasks = []
             queue = copy.deepcopy(self.queue)
             for sid in queue:
@@ -2235,7 +2235,7 @@ class Audio:
             await asyncio.sleep(1)
 
     async def reload_monitor(self):
-        while self == self.bot.get_module('Audio'):
+        while self == self.bot.get_cog('Audio'):
             await asyncio.sleep(0.5)
 
         for vc in self.bot.voice_clients:
