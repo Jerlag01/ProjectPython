@@ -102,7 +102,7 @@ class Settings:
         self.no_prompt = args.no_prompt
         self.self_bot = args.self_bot
         self._memory_only = args.memory_only
-        self._no_cogs = args.no_cogs
+        self._no_modules = args.no_modules
         self.debug = args.debug
         self._dry_run = args.dry_run
         self.co_owners = args.co_owner
@@ -110,7 +110,7 @@ class Settings:
         self.save_settings()
 
     def check_folders(self):
-        folders = ("data", os.path.dirname(self.path), "cogs", "cogs/utils")
+        folders = ("data", os.path.dirname(self.path), "modules", "modules/utils")
         for folder in folders:
             if not os.path.exists(folder):
                 print("Creating " + folder + " folder...")
