@@ -462,7 +462,7 @@ def set_logger(bot):
     handler.setFormatter(logging.Formatter(
         '%(asctime)s %(levelname)s %(module)s %(funcName)s %(lineno)d: '
         '%(message)s', datefmt ="[%d/%m/%Y %H:%M]"))
-    dp_logger.addHandler(handler)
+    dpy_logger.addHandler(handler)
 
     return logger
 
