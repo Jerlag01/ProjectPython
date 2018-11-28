@@ -360,8 +360,8 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
     return bot
 
 def check_folders():
-    folder = ("data", "data/projectpython", "modules", "modules/utils")
-    for folder in check_folders:
+    folders = ("data", "data/projectpython", "modules", "modules/utils")
+    for folder in folders:
         if not os.path.exists(folder):
             print("Creating " + folder + " folder....")
             os.makedirs(folder)
