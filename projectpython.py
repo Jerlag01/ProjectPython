@@ -522,7 +522,7 @@ def load_modules(bot):
         if to_load:
             try:
                 owner_module._load_module(extension)
-            except:
+            except Exception as e:
                 print("{}: {}".format(e.__class__.__name__, str(e)))
                 bot.logger.exception(e)
                 failed.append(extension)
