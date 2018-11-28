@@ -81,8 +81,6 @@ class General:
         data.add_field(name="Owner", value=str(server.owner))
         data.set_footer(text="Server ID: " + server.id)
 
-        print('{0.author} executed command serverinfo')
-
         if server.icon_url:
             data.set_author(name=server.name, url=server.icon_url)
             data.set_thumbnail(url=server.icon_url)
@@ -198,9 +196,6 @@ class General:
             await self.bot.say(embed=data)
         except discord.HTTPException:
             await self.bot.say("I need the 'Embed Links' permission to send this.")
-
-        
-        print('{0.author} executed command userinfo')
 
     @commands.command(pass_context=True, no_pm=True)
     async def poll(self, ctx, *text):
