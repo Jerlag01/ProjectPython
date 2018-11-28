@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 from modules.utils import checks
 from modules.utils.converters import GlobalUser
-from __main__ import set_cog
+from __main__ import set_module
 from .utils.dataIO import dataIO
 from .utils.chatformat import pagify, box
 
