@@ -5,7 +5,7 @@ import os
 import argparse
 
 
-default_path = "data/red/settings.json"
+default_path = "data/projectpython/settings.json"
 
 
 class Settings:
@@ -35,7 +35,7 @@ class Settings:
                     if key not in current.keys():
                         current[key] = self.default_settings[key]
                         print("Adding " + str(key) +
-                              " field to red settings.json")
+                              " field to projectpython settings.json")
                 dataIO.save_json(self.path, current)
             self.bot_settings = dataIO.load_json(self.path)
 
@@ -48,13 +48,13 @@ class Settings:
             self.parse_cmd_arguments()
 
     def parse_cmd_arguments(self):
-        parser = argparse.ArgumentParser(description="Red - Discord Bot")
+        parser = argparse.ArgumentParser(description="ProjectPython - Discord Bot")
         parser.add_argument("--owner", help="ID of the owner. Only who hosts "
-                                            "Red should be owner, this has "
+                                            "ProjectPython should be owner, this has "
                                             "security implications")
         parser.add_argument("--co-owner", action="append", default=[],
                             help="ID of a co-owner. Only people who have "
-                                 "access to the system that is hosting Red "
+                                 "access to the system that is hosting ProjectPython "
                                  "should be  co-owners, as this gives them "
                                  "complete access to the system's data. "
                                  "This has serious security implications if "
@@ -62,26 +62,26 @@ class Settings:
         parser.add_argument("--prefix", "-p", action="append",
                             help="Global prefix. Can be multiple")
         parser.add_argument("--admin-role", help="Role seen as admin role by "
-                                                 "Red")
-        parser.add_argument("--mod-role", help="Role seen as mod role by Red")
+                                                 "ProjectPython")
+        parser.add_argument("--mod-role", help="Role seen as mod role by ProjectPython")
         parser.add_argument("--no-prompt",
                             action="store_true",
                             help="Disables console inputs. Features requiring "
                                  "console interaction could be disabled as a "
                                  "result")
-        parser.add_argument("--no-cogs",
+        parser.add_argument("--no-modules",
                             action="store_true",
-                            help="Starts Red with no cogs loaded, only core")
+                            help="Starts ProjectPython with no modules loaded, only core")
         parser.add_argument("--self-bot",
                             action='store_true',
-                            help="Specifies if Red should log in as selfbot")
+                            help="Specifies if ProjectPython should log in as selfbot")
         parser.add_argument("--memory-only",
                             action="store_true",
                             help="Arguments passed and future edits to the "
                                  "settings will not be saved to disk")
         parser.add_argument("--dry-run",
                             action="store_true",
-                            help="Makes Red quit with code 0 just before the "
+                            help="Makes ProjectPython quit with code 0 just before the "
                                  "login. This is useful for testing the boot "
                                  "process.")
         parser.add_argument("--debug",
@@ -158,7 +158,7 @@ class Settings:
 
     @property
     def token(self):
-        return os.environ.get("RED_TOKEN", self.bot_settings["TOKEN"])
+        return os.environ.get("ProjectPython_TOKEN", self.bot_settings["TOKEN"])
 
     @token.setter
     def token(self, value):
@@ -168,7 +168,7 @@ class Settings:
 
     @property
     def email(self):
-        return os.environ.get("RED_EMAIL", self.bot_settings["EMAIL"])
+        return os.environ.get("ProjectPython_EMAIL", self.bot_settings["EMAIL"])
 
     @email.setter
     def email(self, value):
@@ -177,7 +177,7 @@ class Settings:
 
     @property
     def password(self):
-        return os.environ.get("RED_PASSWORD", self.bot_settings["PASSWORD"])
+        return os.environ.get("ProjectPython_PASSWORD", self.bot_settings["PASSWORD"])
 
     @password.setter
     def password(self, value):
