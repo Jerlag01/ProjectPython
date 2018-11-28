@@ -245,7 +245,7 @@ class General:
                 return poll
         return False
 
-    async def check_poll_cotes(self, message):
+    async def check_poll_votes(self, message):
         if message.author.id != self.bot.userinfo.id:
             if self.getPollByChannel(message):
                 self.hetPollByChannel(message).checkAnswer(message)
