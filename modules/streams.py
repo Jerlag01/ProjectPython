@@ -1,6 +1,6 @@
 from discord.ext import commands
 from .utils.dataIO import dataIO
-from .utils.chat_formatting import escape_mass_mentions
+from .utils.chatformat import escape_mass_mentions
 from .utils import checks
 from collections import defaultdict
 from string import ascii_letters

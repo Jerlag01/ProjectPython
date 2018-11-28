@@ -5,7 +5,7 @@ import os
 from random import shuffle, choice
 from modules.utils.dataIO import dataIO
 from modules.utils import checks
-from modules.utils.chat_formatting import pagify, escape
+from modules.utils.chatformat import pagify, escape
 from urllib.parse import urlparse
 from __main__ import send_cmd_help, settings
 from json import JSONDecodeError

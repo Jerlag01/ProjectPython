@@ -220,7 +220,7 @@ class General:
             if "@everyone" in check or "@here" in check:
                 await self.bot.say("Nice try.")
                 return
-            p : NewPoll(message, " ".join(text), self)
+            p = NewPoll(message, " ".join(text), self)
             if p.valid:
                 self.poll_sessions.append(p)
                 await p.start()

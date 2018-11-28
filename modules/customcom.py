@@ -1,7 +1,7 @@
 from discord.ext import commands
 from .utils.dataIO import dataIO
 from .utils import checks
-from .utils.chat_formatting import pagify, box
+from .utils.chatformat import pagify, box
 import os
 import re
 

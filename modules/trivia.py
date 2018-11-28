@@ -2,7 +2,7 @@ from discord.ext import commands
 from random import choice
 from .utils.dataIO import dataIO
 from .utils import checks
-from .utils.chat_formatting import box
+from .utils.chatformat import box
 from collections import Counter, defaultdict, namedtuple
 import discord
 import time
