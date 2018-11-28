@@ -25,9 +25,9 @@ REQS_TXT = "requirements.txt"
 REQS_NO_AUDIO_TXT = "requirements_no_audio.txt"
 FFMPEG_BUILDS_URL = "https://ffmpeg.zeranoe.com/builds/"
 
-INTRO = ("==========================\n"
+INTRO = ("=======================================\n"
          "ProjectPython Discord Bot - Launcher\n"
-         "==========================\n")
+         "=======================================\n")
 
 IS_WINDOWS = os.name == "nt"
 IS_MAC = sys.platform == "darwin"
