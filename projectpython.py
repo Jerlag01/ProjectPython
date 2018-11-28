@@ -286,7 +286,7 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
             prefix_label += 'es'
         print("{}: {}".format(prefix_label, " ".join(bot.settings.prefixes)))
         print("{}/{} active modules with {} commands".format(
-            len(bot.modules), total_modules, len(bot.commands)))
+            len(bot.cogs), total_modules, len(bot.commands)))
         print('-----------------------------\n')
 
         if bot.settings.token and not bot.settings.self_bot:
