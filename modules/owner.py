@@ -71,7 +71,7 @@ class Owner:
                                "something went wrong. Check your console "
                                "or logs for more information.")
         else:
-            set_cog(module, True)
+            set_module(module, True)
             await self.disable_commands()
             await self.bot.say("The module has been loaded")
 
@@ -109,7 +109,7 @@ class Owner:
         modules = self._list_modules()
         still_loaded = []
         for module in modules:
-            set_cog(module, False)
+            set_module(module, False)
             try:
                 self._unload_module(module)
             except OwnerUnloadWithoutReloadError:
