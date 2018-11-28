@@ -1083,5 +1083,4 @@ def check_files():
 
 def setup(bot):
     check_files()
-    n = Owner(bot)
-    bot.add_module(n)
+    bot.add_module(Owner(bot))
