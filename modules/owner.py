@@ -166,7 +166,7 @@ class Owner:
         # Extracting filename from __module__ Example: moduless.owner
         loaded = [c.__module__.split(".")[1] for c in self.bot.cogs.values()]
         # What's in the folder but not loaded is unloaded
-        unloaded = [c.split(".")[1] for c in self._list_cogs()
+        unloaded = [c.split(".")[1] for c in self._list_moduless()
                     if c.split(".")[1] not in loaded]
 
         if not unloaded:
