@@ -446,8 +446,7 @@ def set_logger(bot):
         logger.setLevel(logging.INFO)
 
     fhandler = logging.handlers.RotatingFileHandler(
-        filename='data/projectpython/projectpython.log', encoding='utf-8', module='a',
-        maxbytes=10**7, backupCount=5)
+        filename='data/projectpython/projectpython.log', encoding='utf-8', mode='a', maxBytes=10**7, backupCount=5)
     fhandler.setFormatter(projectpython_format)
 
     logger.addHandler(fhandler)
@@ -459,7 +458,7 @@ def set_logger(bot):
     else:
         dpy_logger.setLevel(logging.WARNING)
     handler = logging.FileHandler(
-        filename='data/projectpython/discord.log', encoding='utf-8', module='a')
+        filename='data/projectpython/discord.log', encoding='utf-8', mode='a')
     handler.setFormatter(logging.Formatter(
         '%(asctime)s %(levelname)s %(module)s %(funcName)s %(lineno)d: '
         '%(message)s', datefmt ="[%d/%m/%Y %H:%M]"))
