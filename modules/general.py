@@ -12,7 +12,7 @@ from urllib.parse import quote_plus
 
 settings = {"POLL_DURATION" : 60}
 
-class RPS(ENUM):
+class RPS(Enum):
     rock     = "\N{MOYAI}"
     paper    = "\N{PAGE FACING UP}"
     scissors = "\N{BLACK SCISSORS}"
