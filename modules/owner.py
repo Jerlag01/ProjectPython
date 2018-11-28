@@ -56,7 +56,7 @@ class Owner:
         if "modules." not in module:
             module = "modules." + module
         try:
-            self.load_module(module)
+            self._load_module(module)
         except ModuleNotFoundError:
             await self.bot.say("The module could not be found.")
         except ModuleLoadError as e:
