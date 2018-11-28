@@ -256,7 +256,7 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
 
         owner_module = bot.get_cog('Owner')
         total_modules = len(owner_module._list_modules())
-        users = len(bot.get_all_members())
+        users = len(set(bot.get_all_members()))
         servers = len(bot.servers)
         channels = len([c for c in bot.get_all_channels()])
 
