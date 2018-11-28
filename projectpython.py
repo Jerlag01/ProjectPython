@@ -25,7 +25,7 @@ from io import TextIOWrapper
 
 description = "ProjectPython - A discord bot made for the course Python at Thomas More"
 
-class Client(commands.Bot):
+class Bot(commands.Bot):
     def __init__(self, *args, **kwargs):
 
         def prefix_manager(bot, message):
