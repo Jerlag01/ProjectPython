@@ -7,6 +7,7 @@ import re
 import os
 import logging
 import subprocess
+import speedtest
 from random import choice
 from random import randint
 from discord.ext import commands
@@ -14,13 +15,6 @@ from .utils.chatformat import escape_mass_mentions, italics, pagify
 from enum import Enum
 from urllib.parse import quote_plus
 from .utils.dataIO import dataIO
-
-try:
-    import speedtest
-
-    module_avail = True
-except ImportError:
-    module_avail = False
 
 settings = {"POLL_DURATION" : 60}
 
@@ -311,13 +305,12 @@ class NewPoll():
                 pass
 
 class Speedtest:
+    """Speedtest for your bot's server"""
 
     def __init__(self, bot):
         self.bot = bot
         self.filepath = "data/speedtest/settings.json"
         self.settings = dataIO.load_json(self.filepath)
-
-    
 
     def speed_test(self):
         return str(subprocess.check_output(['speedtest-cli'], stderr=subprocess.STDOUT))
@@ -417,11 +410,9 @@ def check_file():
     
 def setup(bot):
     n = General(bot)
+    n2 = Speedtest(bot)
     bot.add_listener(n.check_poll_votes, "on_message")
     bot.add_cog(n)
-    if module_avail == True:
-        check_folder()
-        check_file()
-        bot.add_cog(Speedtest(bot))
-    else:
-        raise RuntimeError("You need to run 'pip3 install speedtest-cli")
+    check_folder()
+    check_file()
+    bot.add_cog(n2)
