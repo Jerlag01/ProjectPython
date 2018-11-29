@@ -12,6 +12,7 @@ from discord.ext import commands
 from .utils.chatformat import escape_mass_mentions, italics, pagify
 from enum import Enum
 from urllib.parse import quote_plus
+from .utils.dataIO import dataIO
 
 try:
     import speedtest
