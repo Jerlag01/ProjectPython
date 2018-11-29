@@ -5,6 +5,7 @@ import aiohttp
 import asyncio
 import re
 import os
+import logging
 import subprocess
 from random import choice
 from random import randint
