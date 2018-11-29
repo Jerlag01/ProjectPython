@@ -373,16 +373,16 @@ class Speedtest:
         self.settings[author.id] = {}
         unitz = ['bits', 'bytes']
 
-        if units.loawer() in unitz:
+        if units.lower() in unitz:
             if units == 'bits':
                 self.settings[author.id].update({'data_type': '1'})
                 dataIO.save_json(self.filepath, self.settings)
             else:
-                self.settigns[author.id].update({'data_type': '0.125'})
+                self.settings[author.id].update({'data_type': '0.125'})
                 dataIO.save_json(self.filepath, self.settings)
 
             if float(high) < float(low):
-                await self.bot.say('Error High is less that low')
+                await self.bot.say('Error High is less then low')
             else:
                 self.settings[author.id].update({'upperbound': high})
                 self.settings[author.id].update({'lowerbound': low})
