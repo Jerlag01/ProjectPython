@@ -411,12 +411,12 @@ class Speedtest:
             dataIO.save_json(f, data)
     
 def setup(bot):
-    check_folder()
-    check_file()
     n = General(bot)
     bot.add_listener(n.check_poll_votes, "on_message")
     bot.add_cog(n)
     if module_avail == True:
+        check_folder()
+        check_file()
         bot.add_cog(Speedtest(bot))
     else:
         raise RuntimeError("You need to run 'pip3 install speedtest-cli")
