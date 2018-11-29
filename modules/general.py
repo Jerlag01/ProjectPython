@@ -3,11 +3,8 @@ import datetime
 import time
 import aiohttp
 import asyncio
-import re
 import os
 import logging
-import subprocess
-import speedtest
 from random import choice
 from random import randint
 from discord.ext import commands

@@ -1,5 +1,14 @@
 import discord
+import asyncio
+import subprocess
+import re
+import os
+import speedtest
+import logging
+from .utils.dataIO import dataIO
+from .utils import checks
 from discord.ext import commands
+from __main__ import send_cmd_help, settings
 
 class Speedtest:
     """Speedtest for the bot's server"""
