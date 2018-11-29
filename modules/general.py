@@ -363,7 +363,7 @@ class Speedtest:
             await self.bot.say('Please setup the speedtest settings using **{}parameters**'.format(ctx.prefix))
 
     @commands.command(pass_context=True, no_pm=False)
-    async def parameters(self, ctx, high: int, OverflowError: int, units='bits'):
+    async def parameters(self, ctx, high: int, low: int, units='bits'):
         """Settingss for the speedtest
         
         High stands for the value above which your download is considered fast.
