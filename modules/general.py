@@ -395,20 +395,20 @@ class Speedtest:
         elif not units.lower() in unitz:
             await self.bot.say('Invalid Units Input')
 
-    def speed_test(self):
-        return str(subprocess.check_output(['speedtest-cli'], stderr=subprocess.STDOUT))
+def speed_test(self):
+    return str(subprocess.check_output(['speedtest-cli'], stderr=subprocess.STDOUT))
 
-    def check_folder():
-        if not os.path.exists("data/speedtest"):
-            print("Creating data/speedtest folder")
-            os.makedirs("data/speedtest")
+def check_folder():
+    if not os.path.exists("data/speedtest"):
+        print("Creating data/speedtest folder")
+        os.makedirs("data/speedtest")
 
-    def check_file():
-        data = {}
-        f = "data/speedtest/settings.json"
-        if not dataIO.is_valid_json(f):
-            print("Creating data/speedtest/settings.json")
-            dataIO.save_json(f, data)
+def check_file():
+    data = {}
+    f = "data/speedtest/settings.json"
+    if not dataIO.is_valid_json(f):
+        print("Creating data/speedtest/settings.json")
+        dataIO.save_json(f, data)
     
 def setup(bot):
     n = General(bot)
