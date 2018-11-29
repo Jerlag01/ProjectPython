@@ -317,6 +317,11 @@ class Speedtest:
         self.filepath = "data/speedtest/settings.json"
         self.settings = dataIO.load_json(self.filepath)
 
+    
+
+    def speed_test(self):
+        return str(subprocess.check_output(['speedtest-cli'], stderr=subprocess.STDOUT))
+
     @commands.command(pass_context=True, no_pm=False)
     async def speedtest(self, ctx):
         try:
@@ -326,7 +331,7 @@ class Speedtest:
             high = self.settings[author.id]['upperbound']
             low = self.settings[author.id]['lowerbound']
             multiplyer = (self.settings[author.id]['data_type'])
-            message12 = await self.bot.say(" :stopwatch: **Running speedtest. This may take a while!** : stopwatch:")
+            message12 = await self.bot.say(" :stopwatch: **Running speedtest. This may take a while!** :stopwatch:")
 
             DOWNLOAD_RE = re.compile(r"Download: ([\d.]+) .bit")
             UPLOAD_RE = re.compile(r"Upload: ([\d.]+) .bit")
@@ -397,9 +402,6 @@ class Speedtest:
                 await self.bot.say(embed=embed2)
         elif not units.lower() in unitz:
             await self.bot.say('Invalid Units Input')
-
-def speed_test(self):
-    return str(subprocess.check_output(['speedtest-cli'], stderr=subprocess.STDOUT))
 
 def check_folder():
     if not os.path.exists("data/speedtest"):
