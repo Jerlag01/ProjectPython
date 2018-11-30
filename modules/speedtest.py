@@ -25,7 +25,7 @@ class Speedtest:
     async def speedtest(self, ctx):
         try:
             channel = ctx.message.channel
-            uthor = ctx.message.author
+            author = ctx.message.author
             user = author
             high = self.settings[author.id]['upperbound']
             low = self.settings[author.id]['lowerbound']
