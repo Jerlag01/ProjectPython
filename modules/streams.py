@@ -559,7 +559,7 @@ class Streams:
             print("Error during convertion of twitch usernames to IDs: "
                   "{}".format(e))
 
-        while self == self.bot.get_module("Streams"):
+        while self == self.bot.get_cog("Streams"):
             save = False
 
             streams = ((self.twitch_streams,  self.twitch_online),
