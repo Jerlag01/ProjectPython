@@ -16,7 +16,7 @@ class Speedtest:
     def __init__(self, bot):
         self.bot = bot
         self.filepath = "data/speedtest/settings.json"
-        self.ssettings = dataIO.load_json(self.filepath)
+        self.settings = dataIO.load_json(self.filepath)
 
     def speed_test(self):
         return str(subprocess.check_output(['speedtest-cli'], stderr=subprocess.STDOUT))
