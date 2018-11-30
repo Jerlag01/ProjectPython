@@ -118,4 +118,4 @@ def setup(bot):
     check_folder()
     check_file()
     n = Speedtest(bot)
-    vot.add_cog(n)
+    bot.add_cog(n)
