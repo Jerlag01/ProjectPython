@@ -1,4 +1,5 @@
 import discord
+import utils
 import datetime
 import time
 import aiohttp
@@ -241,7 +242,7 @@ class General:
     async def check_poll_votes(self, message):
         if message.author.id != self.bot.user.id:
             if self.getPollByChannel(message):
-                self.hetPollByChannel(message).checkAnswer(message)
+                self.getPollByChannel(message).checkAnswer(message)
 
     def fetch_joined_at(self, user, server):
         """Just a special case for someone special :^)"""
@@ -274,18 +275,18 @@ class NewPoll():
     async def start(self):
         msg = "**POLL STARTED!**\n\n{}\n\n".format(self.question)
         for id, data in self.answers.items():
-            msg += "*{}. - *{}*\n".format(id, data["ANSWER"])
+            msg += "{}. - *{}*\n".format(id, data["ANSWER"])
         msg += "\nType the number to vote!"
         await self.client.send_message(self.channel, msg)
         await asyncio.sleep(settings["POLL_DURATION"])
         if self.valid:
-            await seld.endPoll()
+            await self.endPoll()
 
     async def endPoll(self):
-        self.valid = Falsemsg = "**POLL ENDED!**\n\n{}\n\n".format(self.question)
-        for id, data in self.answers.items():
-            msg += "*{}* - {}\n".format(data["ANSWER"], str(data["VOTES"]))
-        msg += "\nType the number to vote!"
+        self.valid = False
+        msg = "**POLL ENDED!**\n\n{}\n\n".format(self.question)
+        for data in self.answers.values():
+            msg += "*{}* - {} votes\n".format(data["ANSWER"], str(data["VOTES"]))
         await self.client.send_message(self.channel, msg)
         self.poll_sessions.remove(self)
 

@@ -489,7 +489,7 @@ def set_module(module, value):
     dataIO.save_json("data/projectpython/modules.json", data)
 
 def load_modules(bot):
-    defaults = ("alias", "audio", "customcom", "downloader", "economy", "general", "image", "mod", "trivia", "streams")
+    defaults = ("autoresponder", "audio", "customcom", "downloader", "lockdown", "general", "image", "mod", "speedtest")
 
     try:
         registry = dataIO.load_json("data/projectpython/modules.json")
