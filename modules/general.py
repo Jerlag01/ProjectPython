@@ -1,5 +1,4 @@
 import discord
-import utils
 import datetime
 import time
 import aiohttp
