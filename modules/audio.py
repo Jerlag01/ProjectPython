@@ -1807,7 +1807,7 @@ class Audio:
                 song_info.append("{}. {.webpage_url}".format(num, song))
 
         for num, song in enumerate(queue_song_list, len(song_info) + 1):
-            if num > 5:
+            if num > 15:
                 break
             try:
                 song_info.append("{}. {.title}".format(num, song))
