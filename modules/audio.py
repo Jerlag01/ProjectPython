@@ -1791,8 +1791,8 @@ class Audio:
         if now_playing is not None:
             msg += "\n***Now playing:***\n{}\n".format(now_playing.title)
 
-        queued_song_list = self._get_queue(server, 5)
-        tempqueued_song_list = self._get_queue_tempqueue(server, 5)
+        queued_song_list = self._get_queue(server, 15)
+        tempqueued_song_list = self._get_queue_tempqueue(server, 15)
 
         await self.bot.say("Gathering information...")
 
