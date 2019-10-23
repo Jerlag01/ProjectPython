@@ -20,6 +20,20 @@ class Autoresponder:
             await self.bot.send_message(message.channel, msg)
             await self.bot.process_commands(message)
 
+    async def on_message(self, message):
+        msg = 'What do you mean NO?' .format(message)
+
+        if message.author == self.bot.user:
+            return
+
+        if message.content == ('no'):
+            await self.bot.send_message(message.channel, msg)
+            await self.bot.process_commands(message)
+
+        if message.content == ('No'):
+            await self.bot.send_message(message.channel, msg)
+            await self.bot.process_commands(message)
+
 
 def setup(bot):
     n = Autoresponder(bot)

@@ -259,7 +259,7 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
         owner_module = bot.get_cog('Owner')
         total_modules = len(owner_module._list_modules())
         users = len(set(bot.get_all_members()))
-        servers = len(bot.servers)
+        servers = len(bot.guilds)
         channels = len([c for c in bot.get_all_channels()])
 
         login_time = datetime.datetime.utcnow() - bot.uptime
@@ -276,8 +276,8 @@ def initialize(bot_class=Bot, formatter_class=Formatter):
 
         print('--------------Info-------------')
         print('         Logged in as')
-        print("    Name: " + bot.user.name)
-        print("   ID: " + bot.user.id)
+        print("    Name: " + str(bot.user.name))
+        print("   ID: " + str(bot.user.id))
         print("\nConnected to:")
         print("{} server(s)".format(servers))
         print("{} channels".format(channels))

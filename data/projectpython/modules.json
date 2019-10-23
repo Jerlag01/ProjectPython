@@ -1,0 +1,11 @@
+{
+    "modules.audio" : false,
+    "modules.autoresponder" : true,
+    "modules.customcom" : true,
+    "modules.downloader" : true,
+    "modules.general" : true,
+    "modules.image" : false,
+    "modules.lockdown" : false,
+    "modules.mod" : false,
+    "modules.speedtest" : false
+}
